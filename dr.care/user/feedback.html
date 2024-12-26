@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Care - Feedback</title>
+    <style>
+        body {
+            background-image: url('https://cdn.wallpapersafari.com/99/13/OBl3g7.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: rgb(209, 9, 9);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+    background-color: #35ff02;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .btn-group {
+            margin-bottom: 10px;
+        }
+
+        .btn-group label {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: -1px;
+            font-size: 16px;
+            color: #333;
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .btn-group input[type="radio"] {
+            display: none;
+        }
+
+        .btn-group input[type="radio"]:checked+label {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dr.Care - Feedback</h1>
+    </header>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #f8f9fa;">
+        <a href="home.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Home</a>
+        <a href="appointments.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Appointments</a>
+        <a href="about.html" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">About</a>
+        <a href="contact.html" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Contact</a>
+        <a href="feedback.html" style="color: #ef0a0a; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px; background-color: #1af701fb;">Feedback</a>
+        <div class="profile" style="display: flex; align-items: center;">
+            <img src="https://th.bing.com/th/id/OIP.KitsWvuPkcEUMv3Vd1yQ9QHaHa?rs=1&pid=ImgDetMain" alt="Profile Image" style="width: 50px; height: 50px; border-radius: 50%;">
+            <a href="profile.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Profile</a>
+        </div>
+        <a href="logout.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Logout</a>
+    </nav>
+    <div class="container">
+        <h2>Feedback Form</h2>
+        <form action="feedback.jsp" method="post">
+            <label for="treatment">Doctor's Treatment:</label>
+            <div class="btn-group" id="treatment">
+                <input type="radio" id="treatment-excellent" name="treatment" value="excellent" required>
+                <label for="treatment-excellent">Excellent</label>
+                <input type="radio" id="treatment-good" name="treatment" value="good">
+                <label for="treatment-good">Good</label>
+                <input type="radio" id="treatment-average" name="treatment" value="average">
+                <label for="treatment-average">Average</label>
+                <input type="radio" id="treatment-bad" name="treatment" value="bad">
+                <label for="treatment-bad">Bad</label>
+            </div>
+            
+            <label for="op-section">OP Section Response:</label>
+            <div class="btn-group" id="op-section">
+                <input type="radio" id="op-section-immediate" name="op-section" value="immediate" required>
+                <label for="op-section-immediate">Immediate</label>
+                <input type="radio" id="op-section-slow" name="op-section" value="slow">
+                <label for="op-section-slow">Slow</label>
+                <input type="radio" id="op-section-no-response" name="op-section" value="no-response">
+                <label for="op-section-no-response">No Response</label>
+            </div>
+
+            <label for="wheelchair">Wheelchair Facility:</label>
+            <div class="btn-group" id="wheelchair">
+                <input type="radio" id="wheelchair-available" name="wheelchair" value="available" required>
+                <label for="wheelchair-available">Available</label>
+                <input type="radio" id="wheelchair-not-available" name="wheelchair" value="not-available">
+                <label for="wheelchair-not-available">Not Available</label>
+            </div>
+
+            <label for="facility-rating">Facility Rating:</label>
+            <div class="btn-group" id="facility-rating">
+                <input type="radio" id="facility-rating-1" name="facility-rating" value="1" required>
+                <label for="facility-rating-1">1</label>
+                <input type="radio" id="facility-rating-2" name="facility-rating" value="2">
+                <label for="facility-rating-2">2</label>
+                <input type="radio" id="facility-rating-3" name="facility-rating" value="3">
+                <label for="facility-rating-3">3</label>
+                <input type="radio" id="facility-rating-4" name="facility-rating" value="4">
+                <label for="facility-rating-4">4</label>
+                <input type="radio" id="facility-rating-5" name="facility-rating" value="5">
+                <label for="facility-rating-5">5</label>
+            </div>
+
+            <label for="doctor-rating">Doctor Rating:</label>
+            <div class="btn-group" id="doctor-rating">
+                <input type="radio" id="doctor-rating-1" name="doctor-rating" value="1" required>
+                <label for="doctor-rating-1">1</label>
+                <input type="radio" id="doctor-rating-2" name="doctor-rating" value="2">
+                <label for="doctor-rating-2">2</label>
+                <input type="radio" id="doctor-rating-3" name="doctor-rating" value="3">
+                <label for="doctor-rating-3">3</label>
+                <input type="radio" id="doctor-rating-4" name="doctor-rating" value="4">
+                <label for="doctor-rating-4">4</label>
+                <input type="radio" id="doctor-rating-5" name="doctor-rating" value="5">
+                <label for="doctor-rating-5">5</label>
+            </div>
+
+            <label for="hospital-staff-rating">Hospital Staff Rating:</label>
+            <div class="btn-group" id="hospital-staff-rating">
+                <input type="radio" id="hospital-staff-rating-1" name="hospital-staff-rating" value="1" required>
+                <label for="hospital-staff-rating-1">1</label>
+                <input type="radio" id="hospital-staff-rating-2" name="hospital-staff-rating" value="2">
+                <label for="hospital-staff-rating-2">2</label>
+                <input type="radio" id="hospital-staff-rating-3" name="hospital-staff-rating" value="3">
+                <label for="hospital-staff-rating-3">3</label>
+                <input type="radio" id="hospital-staff-rating-4" name="hospital-staff-rating" value="4">
+                <label for="hospital-staff-rating-4">4</label>
+                <input type="radio" id="hospital-staff-rating-5" name="hospital-staff-rating" value="5">
+                <label for="hospital-staff-rating-5">5</label>
+            </div>
+
+            <label for="watchman-behaviour">Watchman's Behaviour:</label>
+            <div class="btn-group" id="watchman-behaviour">
+                <input type="radio" id="watchman-behaviour-bad" name="watchman-behaviour" value="bad" required>
+                <label for="watchman-behaviour-bad">Bad</label>
+                <input type="radio" id="watchman-behaviour-average" name="watchman-behaviour" value="average">
+                <label for="watchman-behaviour-average">Average</label>
+                <input type="radio" id="watchman-behaviour-good" name="watchman-behaviour" value="good">
+                <label for="watchman-behaviour-good">Good</label>
+                <input type="radio" id="watchman-behaviour-excellent" name="watchman-behaviour" value="excellent">
+                <label for="watchman-behaviour-excellent">Excellent</label>
+            </div>
+
+            <label for="overall-rating">Overall Hospital Rating:</label>
+            <div class="btn-group" id="overall-rating">
+                <input type="radio" id="overall-rating-1" name="overall-rating" value="1" required>
+                <label for="overall-rating-1">1</label>
+                <input type="radio" id="overall-rating-2" name="overall-rating" value="2">
+                <label for="overall-rating-2">2</label>
+                <input type="radio" id="overall-rating-3" name="overall-rating" value="3">
+                <label for="overall-rating-3">3</label>
+                <input type="radio" id="overall-rating-4" name="overall-rating" value="4">
+                <label for="overall-rating-4">4</label>
+                <input type="radio" id="overall-rating-5" name="overall-rating" value="5">
+                <label for="overall-rating-5">5</label>
+            </div>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+
+</html>

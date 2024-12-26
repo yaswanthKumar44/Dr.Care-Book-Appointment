@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Care - Hospital Details</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            background-image: url('https://png.pngtree.com/background/20230525/original/pngtree-image-of-futuristic-medical-hospital-room-picture-image_2736851.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .services {
+    margin-bottom: 20px;
+}
+
+.services ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+li {
+    animation: slidein 1s ease-in-out;
+    margin-bottom: 10px;
+    color: #ff0000;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+        .founder {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .founder img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            background-color: #f8f9fa; /* Light grey background */
+            padding: 20px; /* Padding around the content */
+            margin-bottom: 20px; /* Bottom margin */
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Blue shadow */
+        }
+
+        .location img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .location p {
+            margin: 0; /* Remove default margin */
+            font-size: 18px; /* Larger font size */
+            font-weight: bold; /* Bold text */
+        }
+
+        .services {
+            margin-bottom: 20px;
+        }
+
+        .services ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        blockquote {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-style: italic;
+            color: #333;
+            background-color: #f9f9f9;
+            border-left: 10px solid #007bff;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+
+        blockquote:before {
+            color: #007bff;
+          
+            font-size: 2em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+
+        .highlight {
+            color: #333;
+            border: 2px solid #007bff;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f8f9fa;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+            animation: glow 2s infinite alternate;
+            font-weight: bold; /* Make text bold */
+    position: relative;
+    display: inline-block;
+    animation: shine 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+            }
+
+            to {
+                box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
+            }
+        }
+        button.highlight {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+            padding: 10px 20px; /* Padding around the text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Cursor style on hover */
+        }
+
+        button.highlight:hover {
+            background-color: #0056b3; /* Darker blue background color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dr.Care - Hospital</h1>
+    </header>
+    <div class="container">
+        <blockquote>
+            <p>Providing quality healthcare with compassion and commitment.</p>
+        </blockquote>
+
+        <h2>Facilities Available</h2>
+        <ul>
+            <li>Emergency Services</li>
+            <li>Inpatient and Outpatient Services</li>
+            <li>ICU and Critical Care Units</li>
+            <li>Diagnostic Services (X-ray, MRI, CT Scan, etc.)</li>
+            <li>Surgical Services</li>
+            <li>Pharmacy Services</li>
+            <li>Physical Therapy Services</li>
+            <li>Maternity and Neonatal Care</li>
+            <li>Psychiatric Services</li>
+            <li>Dietary and Nutrition Counseling</li>
+            <li>24/7 Ambulance Services</li>
+        </ul>
+
+        <h2>Services Provided</h2>
+        <div class="services">
+            <ul>
+                <li>24/7 Emergency Services</li>
+                <li>High Security</li>
+                <li>24/7 Junior Doctors Available</li>
+                <li>Ambulance Services Contact: 9678348923</li>
+            </ul>
+        </div>
+
+        <h2>Founder Details</h2>
+        <div class="founder">
+           
+            <img src="https://th.bing.com/th/id/OIP.8N6RDt6heR0GVbQz4bYcLAHaE5?w=1024&h=677&rs=1&pid=ImgDetMain" alt="Founder Image">
+            <center style="font-family: 'Arial', sans-serif; font-size: 24px; animation: glow 2s infinite alternate;">Founder: Dr. Yaswanth Kumar</center>
+        </div>
+
+        <h2>Hospital Location</h2>
+        <div class="location">
+            <img src="https://th.bing.com/th/id/R.166a0531e55b3d03964a0c3e8a08516c?rik=y%2be8uWm5IndIjQ&riu=http%3a%2f%2fclipart-library.com%2fimages%2fdi9rk5KAT.jpg&ehk=CGbQmrQpg3nhi0AO4%2byC9RN5q2dx6qy0o0U9xcNbtfM%3d&risl=&pid=ImgRaw&r=0" " alt="Hospital Image">
+            <p>Location: 123 Main Street, Cityville, Country</p>
+        </div>
+
+        <div>
+<center>            <h2 class="highlight">Ratings</h2>
+ <br>           <p class="highlight">Overall Hospital Rating:  <img src="https://clipart-library.com/data_images/47806.jpg" height="20" width="100" > </p>
+     <br>       <p class="highlight">Doctor's Rating:  <img src="https://www.pngitem.com/pimgs/m/515-5155542_four-out-of-five-star-rating-hd-png.png" height="20" width="100" ></p>
+         <br>   <p class="highlight">Facilities Rating:  <img src="https://www.pngitem.com/pimgs/m/515-5155542_four-out-of-five-star-rating-hd-png.png" height="20" width="100" ></p>
+           <br> <p class="highlight">Hospital (Appointment session,Labs,Equipments) Rating:  <img src="https://www.pngitem.com/pimgs/m/515-5155542_four-out-of-five-star-rating-hd-png.png" height="20" width="100" ></p>
+        </center></div>
+        <footer>
+            <h2>Login/Register</h2>
+            <center>  Login or register to Book Appointment<br>
+           <button class="highlight" onclick="window.location.href='login.html'">Login</button></center>
+        </footer>
+    </div>
+</body>
+
+</html>

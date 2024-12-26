@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Care - Registration</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://png.pngtree.com/back_origin_pic/04/55/94/3fee7ba63517fe0745824025741b69bd.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dr.Care - Registration</h1>
+        <form id="registrationForm" action="register.jsp" method="post">
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password"  required>
+            <label for="address">Address:</label>
+            <input type="text" name="address" required>
+            <label for="age">Age:</label>
+            <input type="number" name="age" min="18" max="150" required>
+            <label for="gender">Gender:</label>
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" name="mobile" pattern="[0-9]{10}" maxlength="10" required>
+            <button type="submit">Register</button>
+            <p class="error" id="errorMsg"></p>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            var password = document.getElementById("password").value;
+            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,20}$/;
+            var allFieldsFilled = Array.from(document.querySelectorAll('input, select')).every(field => field.value.trim() !== '');
+
+            if (!passwordPattern.test(password)) {
+                document.getElementById("errorMsg").textContent += "Password must contain at least one uppercase letter, one lowercase letter, one digit, and be between 8 and 20 characters long.\n";
+                event.preventDefault(); // Prevent form submission
+            }
+
+            if (!allFieldsFilled) {
+                document.getElementById("errorMsg").textContent += "Please fill in all fields.\n";
+                event.preventDefault(); // Prevent form submission
+            }
+
+            if (passwordPattern.test(password) && allFieldsFilled) {
+                // Clear error message
+                document.getElementById("errorMsg").textContent = "";
+
+                // Alert and redirect after successful registration
+              
+               
+            }
+        });
+    </script>
+
+</body>
+
+</html>

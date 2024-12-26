@@ -1,0 +1,240 @@
+CREATE TABLE admins (
+    fullname VARCHAR2(55) NOT NULL,
+    email VARCHAR2(55) NOT NULL,
+    username VARCHAR2(55) unique NOT NULL,
+    password VARCHAR2(25) NOT NULL,
+    address VARCHAR2(55) NOT NULL,
+    age NUMBER NOT NULL,
+    gender VARCHAR2(20) NOT NULL,
+    staff_type VARCHAR2(50) NOT NULL,
+    mobile VARCHAR2(15) NOT NULL
+);
+
+CREATE TABLE users (
+    fullname VARCHAR2(50) NOT NULL,
+    email VARCHAR2(30) NOT NULL,
+    username VARCHAR2(30) UNIQUE NOT NULL,
+    password VARCHAR2(20) NOT NULL,
+    address VARCHAR2(50) NOT NULL,
+    age VARCHAR2(15) NOT NULL,
+    gender VARCHAR2(20) NOT NULL,
+    mobile VARCHAR2(10) NOT NULL
+);
+
+
+
+CREATE TABLE messages (
+    username VARCHAR2(30) NOT NULL UNIQUE,
+    message varchar2(2000) NOT NULL,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE appointments (
+    username VARCHAR(25),
+    name VARCHAR(55) NOT NULL,
+    age INT NOT NULL,
+    issue VARCHAR(255) NOT NULL,
+    mobile VARCHAR(15) NOT NULL, 
+    specialist VARCHAR(55) NOT NULL,
+    doctor VARCHAR(55) NOT NULL,
+    day VARCHAR2(10) NOT NULL,
+    fee INT NOT NULL,
+    transaction_id VARCHAR(25) NOT NULL,
+    doctor_id VARCHAR2(20) NOT NULL,
+    status VARCHAR(55)
+);
+
+
+
+CREATE TABLE feedback (
+    username VARCHAR(25) NOT NULL,
+    treatment VARCHAR(25) NOT NULL,
+    op_section VARCHAR(25) NOT NULL,
+    wheelchair VARCHAR(30) NOT NULL,
+    facility_rating INT NOT NULL,
+    doctor_rating INT NOT NULL,
+    hospital_staff_rating INT NOT NULL,
+    watchman_behaviour VARCHAR(30) NOT NULL,
+    overall_rating INT NOT NULL
+);
+
+
+
+CREATE TABLE doctors (
+    DOCTOR_NAME VARCHAR2(50) NOT NULL,
+    EMAIL VARCHAR2(30) NOT NULL,
+    DOCTOR_ID VARCHAR2(20) UNIQUE NOT NULL,
+    PASSWORD VARCHAR2(15) NOT NULL,
+    ADDRESS VARCHAR2(255) NOT NULL,
+    AGE NUMBER NOT NULL,
+    GENDER VARCHAR2(10) NOT NULL,
+    MOBILE VARCHAR2(15) NOT NULL,
+    EXPERIENCE VARCHAR2(15) NOT NULL,
+    SPECIALIST VARCHAR2(50) NOT NULL,
+    AVAILABILITY_STATUS VARCHAR2(20) NOT NULL,
+    DATE_OF_LEAVE1 VARCHAR2(20),
+    DATE_OF_LEAVE2 VARCHAR2(20),
+    DATE_OF_LEAVE3 VARCHAR2(20)
+);
+
+
+CREATE TABLE owners (
+    fullname VARCHAR(35) NOT NULL,
+    email VARCHAR(55) NOT NULL,
+    owner_id VARCHAR(55) UNIQUE NOT NULL,
+    password VARCHAR(55) NOT NULL,
+    address VARCHAR(55) NOT NULL,
+    age INT NOT NULL,
+    gender VARCHAR(55) NOT NULL,
+    mobile VARCHAR(15) NOT NULL
+);
+
+
+CREATE OR REPLACE TRIGGER UPDATE_AVAILABILITY_STATUS
+BEFORE INSERT OR UPDATE ON doctors
+FOR EACH ROW
+BEGIN
+    IF (TO_CHAR(SYSDATE, 'YYYY-MM-DD') = :NEW.DATE_OF_LEAVE1 OR
+        TO_CHAR(SYSDATE, 'YYYY-MM-DD') = :NEW.DATE_OF_LEAVE2 OR
+        TO_CHAR(SYSDATE, 'YYYY-MM-DD') = :NEW.DATE_OF_LEAVE3) THEN
+        :NEW.AVAILABILITY_STATUS := 'Not Available';
+    ELSE
+        :NEW.AVAILABILITY_STATUS := 'Available';
+    END IF;
+END;
+/
+
+
+
+
+
+CREATE OR REPLACE TRIGGER appointment_limit_trigger
+BEFORE INSERT ON appointments
+FOR EACH ROW
+DECLARE
+    v_appointment_count NUMBER;
+BEGIN
+    -- Check if the appointment count for the doctor on the given day exceeds 5
+    SELECT COUNT(*)
+    INTO v_appointment_count
+    FROM appointments
+    WHERE doctor_id = :NEW.doctor_id
+    AND day = :NEW.day;
+
+    IF v_appointment_count >= 5 THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Cannot book more than 5 appointments for a doctor on a given day.');
+    END IF;
+END;
+/
+
+
+
+SQL> connect yash/455664;
+Connected.
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+ADMINS                         TABLE
+APPOINTMENTS                   TABLE
+DOCTORS                        TABLE
+FEEDBACK                       TABLE
+MESSAGES                       TABLE
+OWNERS                         TABLE
+USERS                          TABLE
+
+7 rows selected.
+
+SQL> desc admins;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FULLNAME                                  NOT NULL VARCHAR2(55)
+ EMAIL                                     NOT NULL VARCHAR2(55)
+ USERNAME                                  NOT NULL VARCHAR2(55)
+ PASSWORD                                  NOT NULL VARCHAR2(25)
+ ADDRESS                                   NOT NULL VARCHAR2(55)
+ AGE                                       NOT NULL NUMBER
+ GENDER                                    NOT NULL VARCHAR2(20)
+ STAFF_TYPE                                NOT NULL VARCHAR2(50)
+ MOBILE                                    NOT NULL VARCHAR2(15)
+
+
+SQL> desc appointments;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USERNAME                                           VARCHAR2(25)
+ NAME                                      NOT NULL VARCHAR2(55)
+ AGE                                       NOT NULL NUMBER(38)
+ ISSUE                                     NOT NULL VARCHAR2(255)
+ MOBILE                                    NOT NULL VARCHAR2(15)
+ SPECIALIST                                NOT NULL VARCHAR2(55)
+ DOCTOR                                    NOT NULL VARCHAR2(55)
+ DAY                                       NOT NULL VARCHAR2(10)
+ FEE                                       NOT NULL NUMBER(38)
+ TRANSACTION_ID                            NOT NULL VARCHAR2(25)
+ DOCTOR_ID                                 NOT NULL VARCHAR2(20)
+ STATUS                                             VARCHAR2(55)
+
+SQL> desc doctors;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DOCTOR_NAME                               NOT NULL VARCHAR2(50)
+ EMAIL                                     NOT NULL VARCHAR2(30)
+ DOCTOR_ID                                 NOT NULL VARCHAR2(20)
+ PASSWORD                                  NOT NULL VARCHAR2(15)
+ ADDRESS                                   NOT NULL VARCHAR2(255)
+ AGE                                       NOT NULL NUMBER
+ GENDER                                    NOT NULL VARCHAR2(10)
+ MOBILE                                    NOT NULL VARCHAR2(15)
+ EXPERIENCE                                NOT NULL VARCHAR2(15)
+ SPECIALIST                                NOT NULL VARCHAR2(50)
+ AVAILABILITY_STATUS                       NOT NULL VARCHAR2(20)
+ DATE_OF_LEAVE1                                     VARCHAR2(20)
+ DATE_OF_LEAVE2                                     VARCHAR2(20)
+ DATE_OF_LEAVE3                                     VARCHAR2(20)
+
+SQL> desc feedback;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USERNAME                                  NOT NULL VARCHAR2(25)
+ TREATMENT                                 NOT NULL VARCHAR2(25)
+ OP_SECTION                                NOT NULL VARCHAR2(25)
+ WHEELCHAIR                                NOT NULL VARCHAR2(30)
+ FACILITY_RATING                           NOT NULL NUMBER(38)
+ DOCTOR_RATING                             NOT NULL NUMBER(38)
+ HOSPITAL_STAFF_RATING                     NOT NULL NUMBER(38)
+ WATCHMAN_BEHAVIOUR                        NOT NULL VARCHAR2(30)
+ OVERALL_RATING                            NOT NULL NUMBER(38)
+
+SQL> desc messages;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USERNAME                                  NOT NULL VARCHAR2(30)
+ MESSAGE                                   NOT NULL VARCHAR2(2000)
+ TIMESTAMP                                          TIMESTAMP(6)
+
+SQL> desc owners;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FULLNAME                                  NOT NULL VARCHAR2(35)
+ EMAIL                                     NOT NULL VARCHAR2(55)
+ OWNER_ID                                  NOT NULL VARCHAR2(55)
+ PASSWORD                                  NOT NULL VARCHAR2(55)
+ ADDRESS                                   NOT NULL VARCHAR2(55)
+ AGE                                       NOT NULL NUMBER(38)
+ GENDER                                    NOT NULL VARCHAR2(55)
+ MOBILE                                    NOT NULL VARCHAR2(15)
+
+SQL> desc users;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ FULLNAME                                  NOT NULL VARCHAR2(50)
+ EMAIL                                     NOT NULL VARCHAR2(30)
+ USERNAME                                  NOT NULL VARCHAR2(30)
+ PASSWORD                                  NOT NULL VARCHAR2(20)
+ ADDRESS                                   NOT NULL VARCHAR2(50)
+ AGE                                       NOT NULL VARCHAR2(15)
+ GENDER                                    NOT NULL VARCHAR2(20)
+ MOBILE                                    NOT NULL VARCHAR2(10)
+
+SQL>

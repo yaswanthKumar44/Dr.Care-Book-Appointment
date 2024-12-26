@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Care - Contact Us</title>
+    <style>
+        /* Your existing CSS styles here */
+        body {
+            background-image: url('https://cdn.wallpapersafari.com/99/13/OBl3g7.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        header {
+            background-color: #007bff;
+            color: rgb(209, 9, 9);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+    background-color: #35ff02;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+        nav a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-info p {
+            margin: 0;
+        }
+
+        .contact-form {
+            text-align: center;
+        }
+
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dr.Care - Contact Us</h1>
+    </header>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #f8f9fa;">
+        <a href="home.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Home</a>
+        <a href="appointments.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Appointments</a>
+        <a href="about.html" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">About</a>
+        <a href="contact.html" style="color: #ef0a0a; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px; background-color: #1af701fb;">Contact</a>
+        <a href="feedback.html" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Feedback</a>
+        <div class="profile" style="display: flex; align-items: center;">
+            <img src="https://th.bing.com/th/id/OIP.KitsWvuPkcEUMv3Vd1yQ9QHaHa?rs=1&pid=ImgDetMain" alt="Profile Image" style="width: 50px; height: 50px; border-radius: 50%;">
+            <a href="profile.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Profile</a>
+        </div>
+        <a href="logout.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Logout</a>
+    </nav>
+    <div class="container">
+        <h2>Contact Information</h2>
+        <div class="contact-info">
+            <h3>Address:</h3>
+            <p>123 Main Street, opposite durga temple,vijayawada</p>
+            <h3>Phone:</h3>
+            <p>+91 9505803479</p>
+            <h3>Email:</h3>
+            <p>contact@drcare.com</p>
+        </div>
+        <h2>Send Us a Message</h2>
+        <div class="contact-form">
+            <form action="contact.jsp" method="post">
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea><br>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

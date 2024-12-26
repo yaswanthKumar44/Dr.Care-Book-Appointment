@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Care - About Us</title>
+    <style>
+        /* Your existing CSS styles here */
+        body {
+            background-image: url('https://cdn.wallpapersafari.com/99/13/OBl3g7.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        header {
+            background-color: #007bff;
+            color: rgb(209, 9, 9);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+    background-color: #35ff02;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .founder {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .founder img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .hospital-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hospital-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .location {
+            margin-bottom: 20px;
+        }
+
+        .services {
+            margin-bottom: 20px;
+        }
+
+        .services ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .founder-text {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Dr.Care - About Us</h1>
+    </header>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #f8f9fa;">
+        <a href="home.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Home</a>
+        <a href="appointments.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Appointments</a>
+        <a href="about.html" style="color: #ef0a0a; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px; background-color: #1af701fb;">About</a>
+        <a href="contact.html" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Contact</a>
+        <a href="feedback.html" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Feedback</a>
+        <div class="profile" style="display: flex; align-items: center;">
+            <img src="https://th.bing.com/th/id/OIP.KitsWvuPkcEUMv3Vd1yQ9QHaHa?rs=1&pid=ImgDetMain" alt="Profile Image" style="width: 50px; height: 50px; border-radius: 50%;">
+            <a href="profile.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Profile</a>
+        </div>
+        <a href="logout.jsp" style="color: #007bff; font-size: 20px; text-decoration: none; padding: 5px 10px; border-radius: 5px;">Logout</a>
+    </nav>
+    <div class="container">
+        <h2>About Dr.Care</h2>
+        <div class="founder">
+            <img src="https://th.bing.com/th/id/OIP.8N6RDt6heR0GVbQz4bYcLAHaE5?w=1024&h=677&rs=1&pid=ImgDetMain" alt="Founder Image">
+            <p class="founder-text">Founder: Dr. Yaswanth Kumar</p>
+        </div>
+        <div class="hospital-image">
+            <img src="https://th.bing.com/th/id/R.166a0531e55b3d03964a0c3e8a08516c?rik=y%2be8uWm5IndIjQ&riu=http%3a%2f%2fclipart-library.com%2fimages%2fdi9rk5KAT.jpg&ehk=CGbQmrQpg3nhi0AO4%2byC9RN5q2dx6qy0o0U9xcNbtfM%3d&risl=&pid=ImgRaw&r=0" alt="Hospital Image">
+        </div>
+        <div class="location">
+            <h3>Location</h3>
+            <p>Dr.Care is located at:</p>
+            <p>Ramana Street,vijayawada,Andhra Pradesh.</p>
+        </div>
+        <div class="services">
+            <h3>Services</h3>
+            <ul>
+                <li>24/7 Emergency Services</li>
+                <li>Specialized Care in Cardiology, Neurology, Pulmonology, Dentistry, and Ophthalmology</li>
+                <li>State-of-the-art Facilities</li>
+                <li>Experienced Medical Staff</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
